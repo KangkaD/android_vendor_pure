@@ -12,11 +12,19 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 IS_ARM64 := true
+
+# Screen
+TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_LENGTH := 1920
+
 # Include pure telephony configuration
 include vendor/pure/configs/pure_phone.mk
+
 # Inherit from z2_plus device
 $(call inherit-product, device/zuk/z2_plus/aosp_z2_plus.mk)
+
 PRODUCT_NAME := z2_plus
 PRODUCT_DEVICE := z2_plus
 PRODUCT_MANUFACTURER := ZUK
