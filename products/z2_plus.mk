@@ -13,6 +13,9 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 IS_ARM64 := true
+# Screen
+TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_LENGTH := 1920
 # Include pure telephony configuration
 include vendor/pure/configs/pure_phone.mk
 # Inherit from z2_plus device
