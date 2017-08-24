@@ -12,17 +12,37 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+
 IS_ARM64 := true
+
+# Screen
+TARGET_SCREEN_WIDTH := 1080
+TARGET_SCREEN_LENGTH := 1920
+
 # Include pure telephony configuration
 include vendor/pure/configs/pure_phone.mk
+
 # Inherit from z2_plus device
 $(call inherit-product, device/zuk/z2_plus/aosp_z2_plus.mk)
+
+$(call inherit-product-if-exists, vendor/zuk/z2_plus/z2_plus-vendor.mk)
+
 PRODUCT_NAME := z2_plus
 PRODUCT_DEVICE := z2_plus
 PRODUCT_MANUFACTURER := ZUK
 PRODUCT_BRAND := ZUK
+PRODUCT_MODEL := Z2 Plus
 PRODUCT_GMS_CLIENTID_BASE := android-zuk
+TARGET_VENDOR_PRODUCT_NAME := z2_plus
+TARGET_VENDOR_DEVICE_NAME := z2_plus
+PRODUCT_BUILD_PROP_OVERRIDES += TARGET_DEVICE=z2_plus PRODUCT_NAME=z2_plus
+
 TARGET_VENDOR := zuk
+
+# Fingerprint
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BUILD_FINGERPRINT="ZUK/z2_plus/z2_plus:7.0/NRD90M/2.5.412_170428:user/release-keys" \
+    PRIVATE_BUILD_DESC="z2_plus-user 7.0 NRD90M 2.5.412_170428 release-keys"
 
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.ota.manifest=https://raw.githubusercontent.com/PureNexusProject-Mod/OTA_server/master/z2_plus.json
